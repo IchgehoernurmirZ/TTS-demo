@@ -1,6 +1,6 @@
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 import React from 'react';
-import styles from "./components/TextInput.module.css";
+import styles from "./SpeechSynthesis.module.css";
 import {Button, message} from "antd";
 import {PauseCircleOutlined, PlayCircleOutlined, StepForwardOutlined} from "@ant-design/icons";
 

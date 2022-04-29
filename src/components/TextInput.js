@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {Input, Button, message} from 'antd';
+import {Input} from 'antd';
 import styles from './TextInput.module.css';
-import {PlayCircleOutlined, PauseCircleOutlined, StepForwardOutlined} from '@ant-design/icons';
-import SpeechSynthesis, {speechSynthesis, pause, resume} from "../SpeechSynthesis";
+import SpeechSynthesis from "./SpeechSynthesis";
 
 const { TextArea } = Input;
 
