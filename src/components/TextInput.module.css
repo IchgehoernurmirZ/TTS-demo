@@ -1,0 +1,16 @@
+.content {
+    width: 80%;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+
+.content p {
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 1em;
+}

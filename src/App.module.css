@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    justify-content: left;
+    margin-left: 25px;
+}
+
+.logo {
+    height: 30px;
+    padding-top: 20px;
+}
+
+.container {
+    display: flex;
+}
