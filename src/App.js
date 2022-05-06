@@ -8,22 +8,27 @@ import Sidebar from "./components/Sidebar";
 
 const App = () => {
     const [voice, setVoice] = useState('');
+    const [speed, setSpeed] = useState('');
 
     const selectedVoice = (selectedVoice) => {
         setVoice(selectedVoice);
     };
 
+    const selectedSpeed = (selectedSpeed) => {
+        setSpeed(selectedSpeed);
+    };
+
     return (
-        <div>
+        <>
             <div className={styles.header}>
                 <FontAwesomeIcon className={styles.logo} icon={faPodcast} />
                 <PageHeader title="TTS Demo" />
             </div>
             <div className={styles.container}>
-                <Sidebar select={selectedVoice}/>
-                <TextInput voice={voice}/>
+                <Sidebar selectVoice={selectedVoice} selectSpeed={selectedSpeed}/>
+                <TextInput voice={voice} speed={speed}/>
             </div>
-        </div>
+        </>
     )
 }
 

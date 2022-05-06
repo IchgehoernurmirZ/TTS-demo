@@ -4,20 +4,26 @@ import styles from "./SpeechSynthesis.module.css";
 import {Button, message} from "antd";
 import {PauseCircleOutlined, PlayCircleOutlined, StepForwardOutlined} from "@ant-design/icons";
 
-
 const SpeechSynthesis = (props) => {
-    const {text, voice} = props;
+    const {text, voice, speed} = props;
+    console.log(speed);
     let currentTime = 0;
     let player;
     const speechConfig = sdk.SpeechConfig.fromSubscription("36a2385d602d40a6ae6bb3331c13917f", "eastasia");
-    speechConfig.speechSynthesisVoiceName = voice;
+    // speechConfig.speechSynthesisVoiceName = voice;
+    const ssml =
+        '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">'+
+        `<voice name="${voice}">` +
+        `<prosody rate="${speed}">${text} </prosody>` +
+        '</voice>' +
+        '</speak>';
 
     const play = () => {
         player = new sdk.SpeakerAudioDestination();
         const audioConfig = sdk.AudioConfig.fromSpeakerOutput(player);
         const synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
-        synthesizer.speakTextAsync(
-            text,
+        synthesizer.speakSsmlAsync(
+            ssml,
             result => {
                 if (result) {
                     synthesizer.close();
@@ -28,8 +34,7 @@ const SpeechSynthesis = (props) => {
             error => {
                 console.log(error);
                 synthesizer.close();
-            }
-        )
+            });
         player.onAudioEnd = (_) => {
             currentTime = 0;
         }
